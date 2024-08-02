@@ -1,0 +1,23 @@
+node Oncogene {
+rate_up = $Carcin;
+rate_down = 0.0;
+}
+
+node ScnOncogene {
+rate_up = 0.0;
+rate_down = 0.0;
+}
+
+division {
+rate = $ScnCancerRate * Oncogene * ScnOncogene /($Pressure * (exp((#cell(1)-1) / $ExpPressSize )-1) +1) ;
+}
+
+division {
+rate = $ProbMutScnMut * $CancerRate * Oncogene * (not ScnOncogene)/ ($Pressure * (exp((#cell(1)-1) / $ExpPressSize )-1) +1) ;
+ScnOncogene.daughter1 = 1;
+}
+
+division {
+rate =  (1-$ProbMutScnMut) * $CancerRate * (Oncogene) * (not ScnOncogene)/($Pressure * (exp((#cell(1)-1) / $ExpPressSize )-1) +1);
+}
+

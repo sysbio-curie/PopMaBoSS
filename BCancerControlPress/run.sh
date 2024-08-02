@@ -1,0 +1,5 @@
+PopMaBoSS BasicCancerControlPress.pbnd -c BasicCancerControlPress.cfg -o ResBCancerControlPress
+PopMaBoSS BasicCancerControlPress.pbnd -c BasicCancerNoPress.cfg -o ResBCancerNoPress
+PopMaBoSS BasicCancerControlPress.pbnd -c BasicCancerControlPress8Cells.cfg -o ResBCancerControlPress8Cells
+PopMaBoSS BasicCancerControlPress.pbnd -c BasicCancerNoPress8Cells.cfg -o ResBCancerNoPress8Cells
+PopMaBoSS BasicCancerControlPress.pbnd -c BasicCancerControlPress8CellsLong.cfg -o ResBCancerControlPress8CellsLong

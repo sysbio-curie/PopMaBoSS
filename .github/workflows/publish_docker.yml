@@ -1,0 +1,28 @@
+name: Docker publish
+
+on:
+  push:
+  pull_request:
+  release:
+    types: [created]
+
+jobs:
+  publish_docker_hub:
+    name: Docker PopMaBoSS
+    runs-on: ubuntu-22.04
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Connect Docker Hub
+      run: |
+        echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+    
+    - name: Build Docker image
+      run: | 
+          docker build -t popmaboss .
+          
+    - name: Upload Docker Hub
+      run: | 
+        docker tag popmaboss:latest sysbiocurie/popmaboss:latest
+        docker push sysbiocurie/popmaboss:latest
