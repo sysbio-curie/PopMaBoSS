@@ -14,7 +14,7 @@ docker run -p 8888:8888 -d sysbiocurie/popmaboss
 ## Use with conda
 To build the conda environment : 
 ```
-conda create -n popmaboss -c colomoto pymaboss notebook seaborn
+conda create -n popmaboss -c colomoto maboss notebook seaborn
 ```
 
 To activate it : 
@@ -22,7 +22,12 @@ To activate it :
 conda activate popmaboss
 ```
 
-To run the notebook: 
+Then, install the beta version of pyMaBOSS
+```
+pip install git+https://github.com/vincent-noel/pyMaBoSS
+```
+
+Finally, to run the notebook: 
 ```
 jupyter notebook
 ```
