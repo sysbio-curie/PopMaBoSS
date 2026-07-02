@@ -1,0 +1,24 @@
+Node D_b1 {
+  logic = (!D_b1 & !P) | (!D_b1 & P & Papo) | (D_b1 & !D_b2 & !P) | (D_b1 & !D_b2 & P & Papo) | (D_b1 & D_b2);
+  rate_up = @logic ? $u_D_b1 : 0;
+  rate_down = @logic ? 0 : $d_D_b1;
+}
+
+Node D_b2 {
+  logic = (D_b1 & !P) | (D_b1 & P & Papo);
+  rate_up = @logic ? $u_D_b2 : 0;
+  rate_down = @logic ? 0 : $d_D_b2;
+}
+
+Node P {
+  logic = (D_b1);
+  rate_up = @logic ? $u_P : 0;
+  rate_down = @logic ? 0 : $d_P;
+}
+
+Node Papo {
+  logic = (D_b1 & D_b2 & P);
+  rate_up = @logic ? $u_Papo : 0;
+  rate_down = @logic ? 0 : $d_Papo;
+}
+
